@@ -1,5 +1,6 @@
 package com.company;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
 
@@ -11,10 +12,16 @@ public class Main {
         //Where the user inputs two strings
         while(anagram) {
 
-            System.out.println("Enter a word that's 5 characters or less");
+            System.out.println("Enter a word");
             String fWord = kbInput.nextLine(); //first word
-            System.out.println("Enter another word that's 5 characters or less");
+            System.out.println("Enter another word");
             String sWord = kbInput.nextLine(); //second word
+
+            //converting inputs to characters and sorting
+            char[] fWordArray = fWord.toCharArray();
+            char[] sWordArray = sWord.toCharArray();
+            Arrays.sort(fWordArray);
+            Arrays.sort(sWordArray);
 
             //Where lengths are stored
             int fString = fWord.length();
@@ -25,11 +32,14 @@ public class Main {
                 System.out.println("These words aren't anagrams");
                 System.out.println("Try again");
             }
-            //If fWord and sWord are 5 words or less
-            else if (fString == sString){
-                System.out.println("test");
-                anagram = false;
-
+            //If fWord and sWord are anagrams
+            else if(fString == sString){
+                if(Arrays.equals(fWordArray,sWordArray)){
+                    System.out.println(fWord + " and " + sWord + " are anagrams");
+                    anagram = false;
+                }else {
+                    System.out.println(fWord + " and " + sWord + " aren't anagrams");
+                }
             }
 
 
