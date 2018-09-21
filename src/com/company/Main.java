@@ -5,13 +5,14 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        //Where the scanner is created
+        //Global
         Scanner kbInput = new Scanner(System.in);
         boolean anagram = true;
 
-        //Where the user inputs two strings
+
         while(anagram) {
 
+            //Where the user inputs two strings
             System.out.println("Enter a word");
             String fWord = kbInput.nextLine(); //first word
             System.out.println("Enter another word");
